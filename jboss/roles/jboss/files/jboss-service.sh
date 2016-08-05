@@ -1,33 +1,17 @@
 #!/usr/bin/env bash
-#
-# JBoss standalone control script
-#
-# chkconfig: - 80 20
-# description: JBoss AS Standalone
-# processname: standalone
-# pidfile: /var/run/jboss-as/jboss-as-standalone.pid
-# config: /etc/jboss-as/jboss-as.conf
-
-# Source function library.
 . /etc/init.d/functions
 
-# Load Java configuration.
 [ -r /etc/java/java.conf ] && . /etc/java/java.conf
 export JAVA_HOME
 
-##
-# Set the JBoss user
 JBOSS_USER=jboss
 export JBOSS_USER
 
-# Load JBoss AS init.d configuration.
 if [ -z "$JBOSS_CONF" ]; then
   JBOSS_CONF="/etc/jboss-as/jboss-as.conf"
 fi
 
 [ -r "$JBOSS_CONF" ] && . "${JBOSS_CONF}"
-
-# Set defaults.
 
 if [ -z "$JBOSS_HOME" ]; then
   JBOSS_HOME=/usr/share/jboss-as
@@ -87,8 +71,6 @@ start() {
 
   mkdir -p $(dirname $JBOSS_PIDFILE)
   chown $JBOSS_USER $(dirname $JBOSS_PIDFILE) || true
-  #$CMD_PREFIX JBOSS_PIDFILE=$JBOSS_PIDFILE $JBOSS_SCRIPT 2>&1 > $JBOSS_CONSOLE_LOG &
-  #$CMD_PREFIX JBOSS_PIDFILE=$JBOSS_PIDFILE $JBOSS_SCRIPT &
 
   if [ ! -z "$JBOSS_USER" ]; then
     if [ -x /etc/rc.d/init.d/functions ]; then

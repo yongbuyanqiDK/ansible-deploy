@@ -1,0 +1,28 @@
+---
+- name: Download JBoss
+  get_url: url={{ jboss_url }}} dest=/opt/jboss-as-7.1.1.Final.tar.gz
+
+- name: Tar zxvf jboss
+  command: chdir=/usr/share /usr/bin/tar zxvf /opt/jboss-as-7.1.1.Final.tar.gz creates=/usr/share/jboss
+
+- name: Rename install directory
+  command: chdir=/usr/share /bin/mv jboss-as-7.1.1.Final jboss creates=/usr/share/jboss
+
+- name: Copying configuration file
+  template: src=standalone.xml dest=/usr/share/jboss/standalone/configuration/
+  notify: restart jboss
+
+- name: Add group "jboss"
+  group: name=jboss
+
+- name: Add user "jboss"
+  user: name=jboss group=jboss home=/usr/share/jboss
+
+- name: Change ownership of JBoss installation
+  file: path=/usr/share/jboss/ owner=jboss group=jboss state=directory recurse=yes
+
+- name: Copy the init script
+  copy: src=jboss-service.sh dest=/etc/init.d/jboss mode=0755
+
+- name: Enable JBoss to be started at boot
+  service: name=jboss enabled=yes state=started
