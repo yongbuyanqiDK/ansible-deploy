@@ -1,0 +1,31 @@
+---
+- name: download mysql from repository
+  get_url: url={{ mysqlserver_path }} dest=/opt/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
+
+- name: download mysql from repository
+  get_url: url={{ mysqldevel_path }} dest=/opt/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
+
+- name: download mysql from repository
+  get_url: url={{ mysqlclient_path }} dest=/opt/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
+
+- name: yum install mysql
+  yum: name={{ item }} state=present
+     - with_items:
+       - libaio
+       - perl-Module-Install.noarch
+       - /opt/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
+       - /opt/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
+       - /opt/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
+
+- name: create new mysql secuert password
+  command: /usr/bin/mysql_install_db
+
+- name: delete config
+  command: sudo rm -rf /etc/my.cnf
+
+- name: copy config
+  copy: src=/usr/share/mysql/my-default.cnf dest=/etc/my.cnf
+
+- name:run mysql shell
+  script: mysql.sh
+  notify: restart mysql

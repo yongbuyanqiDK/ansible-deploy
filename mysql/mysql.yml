@@ -1,0 +1,7 @@
+# This playbook deploys a simple mysql server.
+
+- hosts: mysql-servers
+  remote_user: root
+
+  roles:
+    - mysql
