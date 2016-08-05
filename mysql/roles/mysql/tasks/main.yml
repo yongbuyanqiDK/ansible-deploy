@@ -10,12 +10,12 @@
 
 - name: yum install mysql
   yum: name={{ item }} state=present
-     - with_items:
-       - libaio
-       - perl-Module-Install.noarch
-       - /opt/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
-       - /opt/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
-       - /opt/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
+  with_items:
+   - libaio
+   - perl-Module-Install.noarch
+   - /opt/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
+   - /opt/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
+   - /opt/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
 
 - name: create new mysql secuert password
   command: /usr/bin/mysql_install_db
