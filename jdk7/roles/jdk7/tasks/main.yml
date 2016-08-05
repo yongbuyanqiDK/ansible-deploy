@@ -1,0 +1,9 @@
+---
+  - name: Download jdk
+    get_url: {{ jdk_url }} dest=/opt/jdk-7u79-linux-x64.rpm
+
+  - name: Install jdk
+    yum: name=/opt/jdk-7u79-linux-x64.rpm state=present
+
+  - name: Config jdk
+    script: jdk.sh
