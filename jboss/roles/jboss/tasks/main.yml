@@ -1,6 +1,6 @@
 ---
 - name: Download JBoss
-  get_url: url={{ jboss_url }}} dest=/opt/jboss-as-7.1.1.Final.tar.gz
+  get_url: url={{ jboss_url }} dest=/opt/jboss-as-7.1.1.Final.tar.gz
 
 - name: Tar zxvf jboss
   command: chdir=/usr/share /usr/bin/tar zxvf /opt/jboss-as-7.1.1.Final.tar.gz creates=/usr/share/jboss
