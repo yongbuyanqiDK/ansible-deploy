@@ -21,7 +21,7 @@
   command: /usr/bin/mysql_install_db
 
 - name: delete config
-  command: sudo rm -rf /etc/my.cnf
+  command: rm -rf /etc/my.cnf
 
 - name: copy config
   copy: src=/usr/share/mysql/my-default.cnf dest=/etc/my.cnf
