@@ -10,6 +10,7 @@
 
 - name: Copying configuration file
   template: src=standalone.xml dest=/usr/share/jboss/standalone/configuration/
+  notify: restart jboss
 
 - name: Add group "jboss"
   group: name=jboss
@@ -22,4 +23,3 @@
 
 - name: Copy the init script
   copy: src=jboss-service.sh dest=/etc/init.d/jboss mode=0755
-  notify: restart jboss
