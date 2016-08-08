@@ -9,7 +9,7 @@
   command: chdir=/usr/share /bin/mv jboss-as-7.1.1.Final jboss creates=/usr/share/jboss
 
 - name: Copying standalone.xml configuration file
-  template: src=standalone.xml dest=/usr/share/jboss-as/standalone/configuration/
+  template: src=standalone.xml dest=/usr/share/jboss/standalone/configuration/
 
 - name: Start jboss
   script: jboss-service.sh

@@ -274,10 +274,10 @@
     </profile>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:192.168.1.53 }"/>
+            <inet-address value="${jboss.bind.address.management:{{ host_ip }}}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:192.168.1.53 }"/>
+            <inet-address value="${jboss.bind.address:{{ host_ip }}}"/>
         </interface>
         <!-- TODO - only show this if the jacorb subsystem is added  -->
         <interface name="unsecure">
@@ -285,7 +285,7 @@
               ~  Used for IIOP sockets in the standard configuration.
               ~                  To secure JacORB you need to setup SSL 
               -->
-            <inet-address value="${jboss.bind.address.unsecure:192.168.1.53 }"/>
+            <inet-address value="${jboss.bind.address.unsecure:{{ host_ip }}}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
