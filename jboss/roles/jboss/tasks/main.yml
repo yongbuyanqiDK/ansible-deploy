@@ -22,4 +22,4 @@
 
 - name: Copy the init script
   copy: src=jboss-service.sh dest=/etc/init.d/jboss mode=0755
-   notify: restart jboss
+  notify: restart jboss
