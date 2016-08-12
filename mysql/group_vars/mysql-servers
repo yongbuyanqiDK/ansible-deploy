@@ -1,5 +1,5 @@
 # Here are variables related to the mysql installation
 
-mysqlserver_path: http://192.168.1.52:8080/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
-mysqldevel_path: http://192.168.1.52:8080/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
-mysqlclient_path: http://192.168.1.52:8080/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
+mysqlserver_download_url: http://192.168.1.52:8080/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
+mysqldevel_download_url: http://192.168.1.52:8080/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
+mysqlclient_download_url: http://192.168.1.52:8080/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm

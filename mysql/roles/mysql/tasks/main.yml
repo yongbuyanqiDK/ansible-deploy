@@ -1,12 +1,12 @@
 ---
 - name: download mysql from repository
-  get_url: url={{ mysqlserver_path }} dest=/opt/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
+  get_url: url={{ mysqlserver_download_url }} dest=/opt/MySQL-server-5.6.28-1.linux_glibc2.5.x86_64.rpm
 
 - name: download mysql from repository
-  get_url: url={{ mysqldevel_path }} dest=/opt/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
+  get_url: url={{ mysqldevel_download_url }} dest=/opt/MySQL-devel-5.6.28-1.linux_glibc2.5.x86_64.rpm
 
 - name: download mysql from repository
-  get_url: url={{ mysqlclient_path }} dest=/opt/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
+  get_url: url={{ mysqlclient_download_url }} dest=/opt/MySQL-client-5.6.28-1.linux_glibc2.5.x86_64.rpm
 
 - name: yum install mysql
   yum: name={{ item }} state=present

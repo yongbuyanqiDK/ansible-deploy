@@ -1,6 +1,6 @@
 ---
   - name: Download jdk
-    get_url: url={{ jdk_url }} dest=/opt/jdk-7u79-linux-x64.rpm
+    get_url: url={{ jdk_download_url }} dest=/opt/jdk-7u79-linux-x64.rpm
 
   - name: Install jdk
     yum: name=/opt/jdk-7u79-linux-x64.rpm state=present
