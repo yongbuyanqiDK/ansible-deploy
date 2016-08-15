@@ -24,7 +24,7 @@
   command: rm -rf /etc/my.cnf
 
 - name: copy config
-  copy: src=/usr/share/mysql/my-default.cnf dest=/etc/my.cnf
+  copy: src=my-default.cnf dest=/etc/my.cnf
 
 - name: run mysql shell
   script: mysql.sh
