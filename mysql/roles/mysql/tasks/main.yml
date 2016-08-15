@@ -26,6 +26,9 @@
 - name: copy config
   copy: src=my-default.cnf dest=/etc/my.cnf
 
+- name: copy sql
+  copy: src=test.sql dest=/opt/test.sql
+
 - name: run mysql shell
   script: mysql.sh
   notify: restart mysql
