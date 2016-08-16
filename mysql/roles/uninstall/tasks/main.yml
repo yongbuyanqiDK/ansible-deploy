@@ -1,0 +1,3 @@
+---
+- name: uninstall mysql
+  script: uninstall.sh

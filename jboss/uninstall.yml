@@ -1,0 +1,7 @@
+# This playbook uninstall a simple JBoss server.
+
+- hosts: jboss-servers
+  remote_user: root
+
+  roles:
+    - uninstall

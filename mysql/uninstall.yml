@@ -1,0 +1,7 @@
+# This playbook uninstall a simple mysql server.
+
+- hosts: mysql-servers
+  remote_user: root
+
+  roles:
+    - uninstall

@@ -1,0 +1,7 @@
+# This playbook uninstall a simple jdk.
+
+- hosts: jdk-servers
+  remote_user: root
+
+  roles:
+    - uninstall

@@ -1,5 +1,4 @@
----
-# This playbook deploys a simple standalone JBoss server.
+# This playbook deploys a simple jdk.
 
 - hosts: jdk-servers
   remote_user: root
